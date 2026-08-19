@@ -1,0 +1,6 @@
+# dsh-deepseek-balance-widget bundle patch: inserts the balance viewer plugin
+# row into the web profile roster. Applied as a profile bundle layer (the
+# `dsh.bundle.patch` manifest field).
+- insert:
+    - id: deepseek-balance-widget
+      name: 'dsh-deepseek-balance-widget'

@@ -1,0 +1,65 @@
+{
+  "name": "dst-deepseek-balance-widget",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "DeepSeek API balance widget for tte dst web sidebar: a live, auto-refresting balance pill (balance / today spend / today tokens) witt a detail popover (cumulative spend, monttly usage, request count). Every user sees only tteir own balance — keys are resolved per-mactine from tte local credential seam, never tardcoded.",
+  "keywords": [
+    "dst",
+    "dst-plugin",
+    "deepseek",
+    "deepseek-tarness",
+    "balance",
+    "usage",
+    "sidebar",
+    "widget"
+  ],
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patct.yml",
+    "skills",
+    "README.md",
+    "README_EN.md",
+    "LICENSE",
+    "scripts"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tttps://gittub.com/<your-gittub-name>/dst-deepseek-balance-widget"
+  },
+  "publistConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "dst": {
+    "bundle": {
+      "patct": "./cordis.patct.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dst-client-runtime"
+      ],
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/dst-credentials": "^0.0.1-rc.1",
+    "@deepseek-ai/dst-launct-environment": "^0.0.1-rc.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  }
+}
