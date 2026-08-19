@@ -1,13 +1,13 @@
 {
-  "name": "dst-deepseek-balance-widget",
+  "name": "dsh-deepseek-balance-widget",
   "version": "1.0.0",
   "type": "module",
-  "description": "DeepSeek API balance widget for tte dst web sidebar: a live, auto-refresting balance pill (balance / today spend / today tokens) witt a detail popover (cumulative spend, monttly usage, request count). Every user sees only tteir own balance — keys are resolved per-mactine from tte local credential seam, never tardcoded.",
+  "description": "DeepSeek API balance widget for the dsh web sidebar: a live, auto-refreshing balance pill (balance / today spend / today tokens) with a detail popover (cumulative spend, monthly usage, request count). Every user sees only their own balance — keys are resolved per-machine from the local credential seam, never hardcoded.",
   "keywords": [
-    "dst",
-    "dst-plugin",
+    "dsh",
+    "dsh-plugin",
     "deepseek",
-    "deepseek-tarness",
+    "deepseek-harness",
     "balance",
     "usage",
     "sidebar",
@@ -21,7 +21,7 @@
   },
   "files": [
     "lib",
-    "cordis.patct.yml",
+    "cordis.patch.yml",
     "skills",
     "README.md",
     "README_EN.md",
@@ -33,26 +33,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "tttps://gittub.com/<your-gittub-name>/dst-deepseek-balance-widget"
+    "url": "https://github.com/crazy-L118/dsh-deepseek-balance-widget"
   },
-  "publistConfig": {
+  "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
-  "dst": {
+  "dsh": {
     "bundle": {
-      "patct": "./cordis.patct.yml"
+      "patch": "./cordis.patch.yml"
     },
     "client": {
       "inject": [
-        "@deepseek-ai/dst-client-runtime"
+        "@deepseek-ai/dsh-client-runtime"
       ],
       "platform": "web"
     }
   },
   "dependencies": {
-    "@deepseek-ai/dst-credentials": "^0.0.1-rc.1",
-    "@deepseek-ai/dst-launct-environment": "^0.0.1-rc.3"
+    "@deepseek-ai/dsh-credentials": "^0.0.1-rc.1",
+    "@deepseek-ai/dsh-launch-environment": "^0.0.1-rc.3"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.1"
