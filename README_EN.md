@@ -1,5 +1,7 @@
 # dsh-deepseek-balance-widget
 
+English | [中文](README.md)
+
 A small plugin that shows your DeepSeek balance in the DeepSeek Harness (dsh) web sidebar: live **balance / today spend / today tokens**, click to open a detail card (cumulative spend, monthly usage, request count, tokens), auto-refreshed every 30 seconds.
 
 > This plugin runs entirely on your own machine: the dsh host resolves **your local credentials** (`~/.dsh/.credentials.yaml` or environment variables) and queries the official DeepSeek APIs server-side. No API key / token / personal data is bundled in the code, so **every user sees only their own balance**.

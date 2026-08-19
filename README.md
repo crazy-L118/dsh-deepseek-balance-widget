@@ -1,5 +1,7 @@
 # dsh-deepseek-balance-widget
 
+[English](README_EN.md) | 中文
+
 在 DeepSeek Harness（dsh）Web 侧边栏显示 DeepSeek 余额的小插件：实时展示**余额 / 今日消费 / 今日Token**，点击弹出详情（累计消费、本月消耗、API 请求次数、Tokens），每 30 秒自动刷新。
 
 > 本插件完全运行在你自己的机器上：余额和用量由 **dsh 宿主端**用**你本机的凭据**（`~/.dsh/.credentials.yaml` 或环境变量）向 DeepSeek 官方接口实时查询。代码中**不内置任何 API Key / Token / 个人数据**，所以**每个人看到的都是自己的余额**，互不可见。
