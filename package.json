@@ -1,6 +1,6 @@
 {
   "name": "dsh-deepseek-balance-widget",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "type": "module",
   "description": "DeepSeek API balance widget for the dsh web sidebar: a live, auto-refreshing balance pill (balance / today spend / today tokens) with a detail popover (cumulative spend, monthly usage, request count). Every user sees only their own balance — keys are resolved per-machine from the local credential seam, never hardcoded.",
   "keywords": [
