@@ -41,10 +41,10 @@
 
 ## 安装
 
-插件托管在 GitHub，包名 **`dsh-deepseek-balance-widget`**。一条命令安装（GitHub 直装）：
+插件已发布到 npm，包名 **`dsh-deepseek-balance-widget`**。一条命令安装（**不需要 git，不需要 GitHub 账号**）：
 
 ```bash
-dsh plugin --profile web add github:crazy-L118/dsh-deepseek-balance-widget
+dsh plugin --profile web add dsh-deepseek-balance-widget
 ```
 
 安装成功后 dsh 会**自动把该包注册进 `dsh.profile.bundles`**（已实测验证），**无需手动改任何配置文件**。本包**没有构建脚本**，pnpm 不会拦截（无需在 `pnpm-workspace.yaml` 的 `allowBuilds` 里批准）。
@@ -53,13 +53,23 @@ dsh plugin --profile web add github:crazy-L118/dsh-deepseek-balance-widget
 
 > 旧版 dsh（不含自动注册机制）或绕过 `dsh plugin` 直接 `pnpm/npm install` 时，才需要手动在 `~/.dsh/profiles/web/package.json` 的 `dsh.profile.bundles` 末尾加入 `"dsh-deepseek-balance-widget"`。
 
-### 🤖 让 AI 帮你装（GitHub 版）
+### 🤖 让 AI 帮你装
 
 2026年了，你有 Agent，让它自己装。打开 DeepSeek Harness，把下面这句丢给它：
 
-> 帮我安装 dsh-deepseek-balance-widget 插件：https://github.com/crazy-L118/dsh-deepseek-balance-widget
+> 帮我安装 dsh-deepseek-balance-widget 插件：npm 包名 dsh-deepseek-balance-widget
 
-AI 会自动完成：获取仓库（git clone，git 不可用时用系统下载工具取 zip）→ 运行仓库里的安装脚本（自动装插件 + 注册 bundles）→ 提醒你重启。
+AI 会自动执行 `dsh plugin --profile web add dsh-deepseek-balance-widget`（从 npm 安装，无需 git）→ 验证 bundles 注册 → 提醒你重启。
+
+### 备选：GitHub 直装
+
+如果暂时连不上 npm registry，也可以从 GitHub 安装：
+
+```bash
+dsh plugin --profile web add github:crazy-L118/dsh-deepseek-balance-widget
+```
+
+（此方式需要电脑装了 git。）
 
 ## 配置凭据（关键一步）
 

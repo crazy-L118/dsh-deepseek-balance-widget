@@ -41,10 +41,10 @@ Browser (dsh web frontend)  ──GET /deepseek-balance──▶  dsh host (your
 
 ## Install
 
-The plugin is hosted on GitHub as **`dsh-deepseek-balance-widget`**. Install with a single command (GitHub):
+The plugin is published to npm as **`dsh-deepseek-balance-widget`**. Install with a single command (**no git, no GitHub account needed**):
 
 ```bash
-dsh plugin --profile web add github:crazy-L118/dsh-deepseek-balance-widget
+dsh plugin --profile web add dsh-deepseek-balance-widget
 ```
 
 After a successful `dsh plugin` install, dsh **automatically registers the package in `dsh.profile.bundles`** (verified end-to-end), so **no manual config editing is needed**. This package has **no build script**, so pnpm does not block it (no `allowBuilds` approval needed).
@@ -53,13 +53,23 @@ Then **restart `dsh web`** — the balance button appears in the sidebar.
 
 > Only for older dsh versions (without the auto-registration mechanism) or when bypassing `dsh plugin` with raw `pnpm/npm install`: manually append `"dsh-deepseek-balance-widget"` to the `dsh.profile.bundles` array in `~/.dsh/profiles/web/package.json`.
 
-### 🤖 Let the AI install it (GitHub)
+### 🤖 Let the AI install it
 
 You have an Agent — let it install itself. Open DeepSeek Harness and drop this sentence in:
 
-> Install the dsh-deepseek-balance-widget plugin for me: https://github.com/crazy-L118/dsh-deepseek-balance-widget
+> Install the dsh-deepseek-balance-widget plugin for me (npm package: dsh-deepseek-balance-widget)
 
-The agent will fetch the repo (git clone; fall back to a zip download if git is missing), run the repo's install script (installs the plugin and registers bundles), then tell you to restart.
+The agent will run `dsh plugin --profile web add dsh-deepseek-balance-widget` (from npm, no git needed), verify the bundle registration, then tell you to restart.
+
+### Alternative: GitHub install
+
+If the npm registry is unreachable, install straight from GitHub instead:
+
+```bash
+dsh plugin --profile web add github:crazy-L118/dsh-deepseek-balance-widget
+```
+
+(Note: this requires git on the machine.)
 
 ## Configure credentials (important)
 

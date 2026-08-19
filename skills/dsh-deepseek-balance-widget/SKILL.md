@@ -11,18 +11,19 @@ user-invocable: true
 
 ## 背景
 
-- 包名：`dsh-deepseek-balance-widget`（GitHub 托管，npm 包名相同）
+- 包名：`dsh-deepseek-balance-widget`（已发布到 npm，GitHub 托管源码）
 - 作用：侧边栏显示余额 / 今日消费 / 今日Token，点击弹出详情；数据由宿主端用**本机**凭据实时查询，不内置任何密钥。
 - 机制：`dsh plugin --profile web add <包>` 在 pnpm 安装成功后，会**自动把声明了 `dsh.bundle` 的包注册进 `dsh.profile.bundles`**，无需手动改配置文件。
 
 ## 安装步骤
 
 1. **检查前置**：确认 `dsh` 与 `pnpm` 可用（`dsh --version`、`pnpm --version`）。
-2. **安装（GitHub 直装）**：
+2. **安装（npm 直装，无需 git）**：
    ```bash
-   dsh plugin --profile web add github:crazy-L118/dsh-deepseek-balance-widget
+   dsh plugin --profile web add dsh-deepseek-balance-widget
    ```
-   - 若用户不知道 GitHub 仓库地址，询问用户；若用户手上有本地源码目录，也可用 `file:` 规格安装。
+   - 若 npm registry 不可达，可退回 GitHub 直装（需要 git）：`dsh plugin --profile web add github:crazy-L118/dsh-deepseek-balance-widget`
+   - 若用户手上有本地源码目录，也可用 `file:` 规格安装。
 3. **验证注册**：读取 `~/.dsh/profiles/web/package.json`（Windows 下为 `%USERPROFILE%\.dsh\profiles\web\package.json`），确认：
    - `dependencies` 中有 `dsh-deepseek-balance-widget`
    - `dsh.profile.bundles` 数组包含 `dsh-deepseek-balance-widget`
