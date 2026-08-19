@@ -8,6 +8,8 @@
 
 ## 功能
 
+![DeepSeek 余额侧边栏展示](assets/screenshot.png)
+
 - 侧边栏常驻按钮：`余额`、`今日消费`、`今日Token` 三个数值，30 秒自动刷新
 - 点击弹出详情卡片：
   - 余额（`$`，来自 `api.deepseek.com/user/balance`）

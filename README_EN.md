@@ -8,6 +8,8 @@ A small plugin that shows your DeepSeek balance in the DeepSeek Harness (dsh) we
 
 ## Features
 
+![DeepSeek balance sidebar](assets/screenshot.png)
+
 - Persistent sidebar widget: `余额` (balance), `今日消费` (today spend), `今日Token` (today tokens), auto-refresh every 30 s
 - Click for a detail card:
   - Balance (`$`, from `api.deepseek.com/user/balance`)
