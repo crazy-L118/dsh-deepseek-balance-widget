@@ -12,9 +12,9 @@ A multi-provider AI balance widget for the dsh web sidebar. **DeepSeek** is buil
 - Popover header shows the current provider: a "**Switch**" menu changes to another added provider, and "**×**" removes it
 - "**+ Add**" button (top right): add **MiMo**
 - Details: balance, cumulative spend, today spend, today tokens, monthly usage (monthly spend / tokens)
-- "**AI 帮我配置**": copy a prompt, send it to your AI, and it walks you through fetching the credentials — no digging through cookies by hand
-- Version shown in the popover footer; one-click auto-update when a new version is available
-- UI language toggle: 中文 / EN
+- "**AI 帮我配置**": copy a prompt, send it to your AI, and it reads the local guide file and walks you through fetching the credentials — no digging through cookies by hand
+- Version shown in the popover footer; one-click auto-update when a new version is available; on failure it points you to GitHub to install manually
+- UI follows dsh's language setting (中文 / EN)
 
 ## Install
 
