@@ -20,12 +20,12 @@ A multi-provider AI balance widget for the dsh web sidebar. **DeepSeek** is buil
 Requires: dsh installed (with `dsh web` working).
 
 ```bash
-dsh plugin --profile web add dsh-deepseek-balance-widget@latest
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.6
 ```
 
 Installed from npm and auto-registered by dsh. **Restart `dsh web`** and the balance button appears in the sidebar.
 
-> If `npm view` / the popover shows you ended up on an old version, follow the "Update" section below to force-upgrade. Older versions are marked deprecated and will print an upgrade warning during install.
+> **Always pin the version `@2.3.6`** (the current latest stable). Do not use `@latest` — local pnpm/npm cache or a mirror registry can resolve it to an outdated release (observed: `@latest` installed 2.3.3 on another machine). When a newer version is released, bump the number here.
 
 Or just tell your AI:
 
@@ -64,23 +64,23 @@ Upgrade to the latest stable release on npm regardless of which older version yo
 ### Method 2: Force update from the command line (most reliable if stuck)
 
 ```bash
-dsh plugin --profile web add dsh-deepseek-balance-widget@latest
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.6
 ```
 
-This installs the version currently tagged as npm `latest`. If the popover still says an update is available, your cache/mirror is out of sync; use Method 3 to install the highest version manually.
+**Pinning `@2.3.6`** bypasses local cache / mirror desync / a stale `latest` resolution in one step. Then **fully restart `dsh web`**.
 
 ### Method 3: Manual update (fallback when the command-line update fails)
 
 ```bash
 cd ~/.dsh/profiles/web
-npm install dsh-deepseek-balance-widget@latest   # use `pnpm add` if a pnpm-lock.yaml exists in this dir
+npm install dsh-deepseek-balance-widget@2.3.6   # use `pnpm add` if a pnpm-lock.yaml exists in this dir
 # verify the on-disk version actually changed
 cat node_modules/dsh-deepseek-balance-widget/package.json | grep '"version"'
 ```
 
-Once it prints the latest version, **fully restart `dsh web`**.
+Once it prints `2.3.6`, **fully restart `dsh web`**.
 
-> You can also replace `latest` with a concrete version (e.g. `@2.3.3`) to bypass cache or mirror sync delays.
+> If the popover / command-line update keeps failing (version never changes), an agent host (e.g. WorkBuddy) is likely injecting a file-deletion guard via `NODE_OPTIONS`, which makes pnpm/npm abort during updates. Run the command in a **plain terminal** (not through the agent), or unset `NODE_OPTIONS` first (PowerShell: `set NODE_OPTIONS=`) and retry.
 
 ## Uninstall
 

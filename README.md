@@ -20,12 +20,12 @@
 需要：已安装 dsh（可用 `dsh web`）。
 
 ```bash
-dsh plugin --profile web add dsh-deepseek-balance-widget@latest
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.6
 ```
 
 从 npm 拉取安装，dsh 自动注册到 `dsh.profile.bundles`，完成后**重启 `dsh web`** 即可。
 
-> 如果 `npm view` / 弹窗显示你装到了旧版本，请参考下方「更新」章节强制升到最新版。旧版本已被标记为 deprecated，安装时会弹出升级提示。
+> **务必写死版本号 `@2.3.6`**（当前最新稳定版）。不要用 `@latest`——它会被本地 pnpm/npm 缓存或镜像源解析成旧版本，导致装到老版（实测在某些电脑上 `@latest` 会装成 2.3.3）。如果未来发布了更高版本，把这里的版本号换成最新的即可。
 
 也可以直接对 AI 说：
 
@@ -64,23 +64,23 @@ AI 会接管全部：问 API Key / 引导获取平台 Cookie → 写入本机 �
 ### 方式二：命令行强制更新（最稳妥，适合卡住或装不上的情况）
 
 ```bash
-dsh plugin --profile web add dsh-deepseek-balance-widget@latest
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.6
 ```
 
-该命令会安装 npm `latest` tag 指向的版本。如果弹窗仍提示可更新，说明本地缓存/镜像源没同步，直接用方式三手动安装最高版。
+**写死版本号 `@2.3.6`** 可绕过本地缓存 / 镜像源不同步 / `latest` 解析成旧版的问题，一步到位。装完**彻底重启 `dsh web`**。
 
 ### 方式三：手动更新（命令行更新失败时兜底）
 
 ```bash
 cd ~/.dsh/profiles/web
-npm install dsh-deepseek-balance-widget@latest   # 若目录内有 pnpm-lock.yaml 则用 pnpm add
+npm install dsh-deepseek-balance-widget@2.3.6   # 若目录内有 pnpm-lock.yaml 则用 pnpm add
 # 验证磁盘上确实变了
 cat node_modules/dsh-deepseek-balance-widget/package.json | grep '"version"'
 ```
 
-确认输出的是最新版本号后，**彻底重启 `dsh web`** 即可。
+确认输出 `2.3.6` 后，**彻底重启 `dsh web`** 即可。
 
-> 也可以把 `latest` 换成具体版本号（如 `@2.3.3`），绕过缓存和镜像同步延迟。
+> 如果你的环境里弹窗/命令行的更新一直失败（提示版本没变），通常是 Agent 主机（如 WorkBuddy）通过 `NODE_OPTIONS` 注入了文件删除拦截导致 pnpm/npm 更新中断。此时在**普通终端**（不通过 Agent 运行）里执行上面的命令即可成功；或先执行 `set NODE_OPTIONS=`（PowerShell）再重试。
 
 ## 卸载
 
