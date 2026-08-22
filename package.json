@@ -1,6 +1,6 @@
 {
   "name": "dsh-deepseek-balance-widget",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "type": "module",
   "description": "Multi-provider AI balance widget for the dsh web sidebar: a live, auto-refreshing balance pill plus a detail popover listing DeepSeek and any added providers (MiMo etc.). Keys are stored per-machine in ~/.dsh/ai-balances.json and resolved from the local credential seam, never hardcoded.",
   "keywords": [
