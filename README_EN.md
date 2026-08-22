@@ -20,10 +20,12 @@ A multi-provider AI balance widget for the dsh web sidebar. **DeepSeek** is buil
 Requires: dsh installed (with `dsh web` working).
 
 ```bash
-dsh plugin --profile web add dsh-deepseek-balance-widget
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.1
 ```
 
 Installed from npm and auto-registered by dsh. **Restart `dsh web`** and the balance button appears in the sidebar.
+
+> Always include the version `@2.3.1`. A bare `add` follows npm's `latest` tag, which may be hijacked by older versions and silently install an outdated release.
 
 Or just tell your AI:
 
@@ -46,6 +48,37 @@ The AI takes care of everything: asks for your API key / guides you through gett
 | MiMo (Xiaomi) | Login cookie | Guided by your AI |
 
 Credentials are stored locally in `~/.dsh/ai-balances.json`; nothing is shipped with the plugin and nothing is uploaded.
+
+## Update
+
+The latest stable release is **`2.3.1`**. Upgrade to it regardless of which older version you currently have.
+
+### Method 1: One-click from the popover (recommended for installed users)
+
+1. Open the balance popover; the footer shows the version. When a newer one exists it reads `vX → v2.3.1 更新`.
+2. Click "**检查更新**" (Check for update). The plugin pulls and installs the highest semver version from npm automatically.
+3. After install you **must fully restart `dsh web`** (stop the `dsh web` process / quit the desktop app and reopen — **refreshing the browser tab is not enough**) for the new version to load.
+
+> The popover's "Check for update" skips the `latest` tag and installs the highest semver version on npm, so it still reaches latest even if someone lowers the `latest` tag.
+
+### Method 2: Force update from the command line (most reliable if stuck)
+
+```bash
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.1
+```
+
+Pinning the version bypasses cache / mirror desync / a hijacked `latest` tag in one step.
+
+### Method 3: Manual update (fallback when the command-line update fails)
+
+```bash
+cd ~/.dsh/profiles/web
+npm install dsh-deepseek-balance-widget@2.3.1   # use `pnpm add` if a pnpm-lock.yaml exists in this dir
+# verify the on-disk version actually changed
+cat node_modules/dsh-deepseek-balance-widget/package.json | grep '"version"'
+```
+
+Once it prints `2.3.1`, **fully restart `dsh web`**.
 
 ## Uninstall
 

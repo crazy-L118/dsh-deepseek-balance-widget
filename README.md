@@ -20,10 +20,12 @@
 需要：已安装 dsh（可用 `dsh web`）。
 
 ```bash
-dsh plugin --profile web add dsh-deepseek-balance-widget
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.1
 ```
 
 从 npm 拉取安装，dsh 自动注册到 `dsh.profile.bundles`，完成后**重启 `dsh web`** 即可。
+
+> 务必带版本号 `@2.3.1`。不带版本号的 `add` 会按 npm 的 `latest` tag 安装，该 tag 可能被旧版本抢回去，导致装到老版本。
 
 也可以直接对 AI 说：
 
@@ -46,6 +48,37 @@ AI 会接管全部：问 API Key / 引导获取平台 Cookie → 写入本机 �
 | MiMo（小米）    | 登录 Cookie                 | AI 引导获取             |
 
 凭据保存在你本机的 `~/.dsh/ai-balances.json`，不随插件分发、不上传。
+
+## 更新
+
+最新稳定版为 **`2.3.1`**。无论你当前是哪个旧版本，都推荐升级到它。
+
+### 方式一：弹窗一键更新（推荐，已装用户）
+
+1. 打开余额弹窗，底部会显示版本号；有新版本时显示 `vX → v2.3.1 更新`。
+2. 点击「**检查更新**」，插件会自动从 npm 拉取并安装最高版本。
+3. 安装完成后**必须彻底重启 `dsh web`**（关掉 `dsh web` 进程 / 退出桌面端再重开，**仅刷新浏览器页面无效**）才能加载新版本。
+
+> 弹窗的「检查更新」会跳过 `latest` tag，直接安装 npm 上 semver 最高的版本，所以即使有人把 `latest` 改低了也能升到最新。
+
+### 方式二：命令行强制更新（最稳妥，适合卡住或装不上的情况）
+
+```bash
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.1
+```
+
+带版本号可绕过缓存 / 镜像源不同步 / `latest` 被抢低等问题，一步到位。
+
+### 方式三：手动更新（命令行更新失败时兜底）
+
+```bash
+cd ~/.dsh/profiles/web
+npm install dsh-deepseek-balance-widget@2.3.1   # 若目录内有 pnpm-lock.yaml 则用 pnpm add
+# 验证磁盘上确实变了
+cat node_modules/dsh-deepseek-balance-widget/package.json | grep '"version"'
+```
+
+确认输出 `2.3.1` 后，**彻底重启 `dsh web`** 即可。
 
 ## 卸载
 
