@@ -12,8 +12,9 @@ A multi-provider AI balance widget for the dsh web sidebar. **DeepSeek** is buil
 - Popover header shows the current provider: a "**Switch**" menu changes to another added provider, and "**×**" removes it
 - "**+ Add**" button (top right): add **MiMo**
 - Details: balance, cumulative spend, today spend, today tokens, monthly usage (monthly spend / tokens)
-- "**AI 帮我配置**": one click copies a prompt; send it to your AI and it guides you through fetching credentials and writing them locally — no digging through cookies by hand
+- "**AI 帮我配置**": copy a prompt, send it to your AI, and it walks you through fetching the credentials — no digging through cookies by hand
 - Version shown in the popover footer; one-click auto-update when a new version is available
+- UI language toggle: 中文 / EN
 
 ## Install
 
@@ -29,7 +30,7 @@ Installed from npm and auto-registered by dsh. **Restart `dsh web`** and the bal
 
 Or just tell your AI:
 
-> Install the dsh-deepseek-balance-widget plugin for me via npm.
+> Install the dsh-deepseek-balance-widget plugin for me via npm: run `dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.6`.
 
 ## Configuration
 
@@ -42,7 +43,7 @@ To add MiMo, open the popover, click "+ Add", then "AI 帮我配置", and send t
 The AI takes care of everything: asks for your API key / guides you through getting the platform cookie → writes the local config → reminds you to **restart `dsh web`**.
 
 | Provider | Credential | Notes |
-|---|---|---|
+| --- | --- | --- |
 | DeepSeek | `DEEPSEEK_API_KEY` | Required, balance |
 | DeepSeek usage | `DEEPSEEK_PLATFORM_TOKEN` | Optional, cumulative / monthly / today stats |
 | MiMo (Xiaomi) | Login cookie | Guided by your AI |
@@ -91,6 +92,18 @@ dsh plugin --profile web rm dsh-deepseek-balance-widget
 Or just tell your AI:
 
 > Uninstall the dsh-deepseek-balance-widget plugin for me via npm.
+
+## Contact
+
+Questions or suggestions? Feel free to reach out:
+
+- Email: crazy_l118@icloud.com
+
+## Sponsor
+
+If this plugin helped you, consider buying me a ham sausage for dinner 🍗
+
+![WeChat reward QR](assets/sponsor.jpg)
 
 ## License
 

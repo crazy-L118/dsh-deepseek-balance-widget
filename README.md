@@ -12,8 +12,9 @@
 - 弹窗顶部显示当前平台标题：点「**更换**」在已添加的平台间切换，点「**×**」可移除该平台
 - 弹窗右上角「**+ 添加**」：加入 MiMo
 - 详情字段：余额、累计消费、今日消费、今日 Token、本月消耗（本月消费 / Tokens）
-- 「**AI 帮我配置**」：复制提示语发给智能体，AI 会一步步指导你抓取凭证并完成配置。
+- 「**AI 帮我配置**」：复制提示语发给智能体，AI 会一步步指导你抓取凭证并完成配置
 - 弹窗底部显示版本号，有新版时一键自动更新
+- 支持中 / EN 界面切换
 
 ## 安装
 
@@ -29,7 +30,7 @@ dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.6
 
 也可以直接对 AI 说：
 
-> 帮我用 npm 安装 dsh-deepseek-balance-widget 插件。
+> 帮我用 npm 安装 dsh-deepseek-balance-widget 插件，执行 `dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.6`。
 
 ## 配置
 
@@ -41,11 +42,11 @@ dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.6
 
 AI 会接管全部：问 API Key / 引导获取平台 Cookie → 写入本机 → 提醒重启 `dsh web`。
 
-| 平台          | 凭据                        | 备注                  |
-| ----------- | ------------------------- | ------------------- |
-| DeepSeek    | `DEEPSEEK_API_KEY`        | 必填，余额               |
+| 平台 | 凭据 | 备注 |
+| --- | --- | --- |
+| DeepSeek | `DEEPSEEK_API_KEY` | 必填，余额 |
 | DeepSeek 用量 | `DEEPSEEK_PLATFORM_TOKEN` | 可选，统计累计消费 / 本月 / 今日 |
-| MiMo（小米）    | 登录 Cookie                 | AI 引导获取             |
+| MiMo（小米） | 登录 Cookie | AI 引导获取 |
 
 凭据保存在你本机的 `~/.dsh/ai-balances.json`，不随插件分发、不上传。
 
@@ -91,6 +92,18 @@ dsh plugin --profile web rm dsh-deepseek-balance-widget
 或者直接对 AI 说：
 
 > 帮我用 npm 卸载 dsh-deepseek-balance-widget 插件。
+
+## 联系
+
+有问题或建议，欢迎联系：
+
+- 邮箱：crazy_l118@icloud.com
+
+## 赞助
+
+如果这个插件对你有帮助，可以给我的晚餐加一根火腿肠 🍗
+
+![赞赏码](assets/sponsor.jpg)
 
 ## License
 
