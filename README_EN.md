@@ -21,16 +21,16 @@ A multi-provider AI balance widget for the dsh web sidebar. **DeepSeek** is buil
 Requires: dsh installed (with `dsh web` working).
 
 ```bash
-dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.6
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.9
 ```
 
 Installed from npm and auto-registered by dsh. **Restart `dsh web`** and the balance button appears in the sidebar.
 
-> **Always pin the version `@2.3.6`** (the current latest stable). Do not use `@latest` — local pnpm/npm cache or a mirror registry can resolve it to an outdated release (observed: `@latest` installed 2.3.3 on another machine). When a newer version is released, bump the number here.
+> **Always pin the version `@2.3.9`** (the current latest stable). Do not use `@latest` — local pnpm/npm cache or a mirror registry can resolve it to an outdated release. When a newer version is released, bump the number here.
 
 Or just tell your AI:
 
-> Install the dsh-deepseek-balance-widget plugin for me via npm: run `dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.6`.
+> Install the dsh-deepseek-balance-widget plugin for me via npm: run `dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.9`.
 
 ## Configuration
 
@@ -65,21 +65,21 @@ Upgrade to the latest stable release on npm regardless of which older version yo
 ### Method 2: Force update from the command line (most reliable if stuck)
 
 ```bash
-dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.6
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.3.9
 ```
 
-**Pinning `@2.3.6`** bypasses local cache / mirror desync / a stale `latest` resolution in one step. Then **fully restart `dsh web`**.
+**Pinning `@2.3.9`** bypasses local cache / mirror desync / a stale `latest` resolution in one step. Then **fully restart `dsh web`**.
 
 ### Method 3: Manual update (fallback when the command-line update fails)
 
 ```bash
 cd ~/.dsh/profiles/web
-npm install dsh-deepseek-balance-widget@2.3.6   # use `pnpm add` if a pnpm-lock.yaml exists in this dir
+npm install dsh-deepseek-balance-widget@2.3.9   # use `pnpm add` if a pnpm-lock.yaml exists in this dir
 # verify the on-disk version actually changed
 cat node_modules/dsh-deepseek-balance-widget/package.json | grep '"version"'
 ```
 
-Once it prints `2.3.6`, **fully restart `dsh web`**.
+Once it prints `2.3.9`, **fully restart `dsh web`**.
 
 > If the popover / command-line update keeps failing (version never changes), an agent host (e.g. WorkBuddy) is likely injecting a file-deletion guard via `NODE_OPTIONS`, which makes pnpm/npm abort during updates. Run the command in a **plain terminal** (not through the agent), or unset `NODE_OPTIONS` first (PowerShell: `set NODE_OPTIONS=`) and retry.
 
