@@ -9,11 +9,11 @@ A multi-provider AI balance widget for the dsh web sidebar. **DeepSeek** is buil
 ![AI balance sidebar](assets/screenshot-en.png)
 
 **Sidebar entry**
-- Live Balance / Today spend / Today tokens for the current provider, auto-refresh every 30 s
+- Live Balance / Today Spend / Today Tokens for the current provider, auto-refresh every 30 s
 - Values follow the provider selected in the popover
 
 **Detail popover**
-- Header shows the current provider: a "**Switch**" menu changes to another added provider, "**×**" removes it (with confirmation)
+- Header shows the current provider: a "**Switch**" menu lets you change to another added provider, and "**×**" removes it (with confirmation)
 - "**+ Add**" button (top right): add MiMo or DeepSeek
 - DeepSeek details: balance, cumulative spend, today spend, today tokens, monthly usage (monthly spend / tokens)
 - MiMo details: balance, cumulative spend, today spend / today tokens, monthly usage, and a **daily usage table** (date / tokens / requests / spend)
@@ -29,7 +29,7 @@ A multi-provider AI balance widget for the dsh web sidebar. **DeepSeek** is buil
 - Everything stays on your machine; nothing is uploaded
 
 **Version & updates**
-- The footer shows the current version; when a newer one exists it reads `vX → vY 更新` with one-click auto-update
+- The footer shows the current version; when a newer one exists it reads `vX → vY Update` with one-click auto-update
 - On update failure an error panel shows the details (copyable) and points you to GitHub for a manual install
 - UI follows dsh's language setting (中文 / EN)
 
@@ -53,7 +53,7 @@ Or just tell your AI:
 
 On first use the plugin creates a DeepSeek entry and reads your local `DEEPSEEK_API_KEY`.
 
-To add MiMo, open the popover, click "+ Add", then "AI 帮我配置", and send the copied prompt to your AI. Or just tell your AI:
+To add MiMo, open the popover, click "+ Add", then "AI Configure", and send the copied prompt to your AI. Or just tell your AI:
 
 > Configure dsh-deepseek-balance-widget for me.
 
@@ -73,8 +73,8 @@ Upgrade to the latest stable release on npm regardless of which older version yo
 
 ### Method 1: One-click from the popover (recommended for installed users)
 
-1. Open the balance popover; the footer shows the version. When a newer one exists it reads `vX → vY 更新` (where `vY` is the highest semver version on npm).
-2. Click "**更新**" (Update). The plugin pulls and installs the highest semver version from npm automatically.
+1. Open the balance popover; the footer shows the version. When a newer one exists it reads `vX → vY Update` (where `vY` is the highest semver version on npm).
+2. Click "**Update**". The plugin pulls and installs the highest semver version from npm automatically.
 3. After install you **must fully restart `dsh web`** (stop the `dsh web` process / quit the desktop app and reopen — **refreshing the browser tab is not enough**) for the new version to load.
 
 > The popover's "Update" skips the `latest` tag and installs the highest semver version on npm, so it still reaches latest even if someone lowers the `latest` tag.
