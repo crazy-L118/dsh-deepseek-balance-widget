@@ -33,21 +33,27 @@
 - 更新失败时显示错误详情面板（可复制错误信息），并引导前往 GitHub 自行安装
 - 界面语言随 dsh 设置自动切换中 / EN
 
+**皮肤与第三方插件兼容（v2.4.3 起）**
+- 与 maid-atelier 等会重建侧栏 DOM 的皮肤插件共存时，余额入口依然稳定显示
+- 插入采用「安全插入」策略：锚点被皮肤 / React 搬走时自动退化为追加，绝不抛异常、绝不中断重试
+- 放置成功后下一帧自动复查，被搬走会在下一轮变化时自动归位
+- 识别常见皮肤标记（如 `[data-maid-sidebar-footer]`）作为侧栏兜底锚点
+
 ## 安装
 
 需要：已安装 dsh（可用 `dsh web`）。
 
 ```bash
-dsh plugin --profile web add dsh-deepseek-balance-widget@2.4.2
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.4.3
 ```
 
 从 npm 拉取安装，dsh 自动注册到 `dsh.profile.bundles`，完成后**重启 `dsh web`** 即可。
 
-> **务必写死版本号 `@2.4.2`**（当前最新稳定版）。不要用 `@latest`——它会被本地 pnpm/npm 缓存或镜像源解析成旧版本，导致装到老版。如果未来发布了更高版本，把这里的版本号换成最新的即可。
+> **务必写死版本号 `@2.4.3`**（当前最新稳定版）。不要用 `@latest`——它会被本地 pnpm/npm 缓存或镜像源解析成旧版本，导致装到老版。如果未来发布了更高版本，把这里的版本号换成最新的即可。
 
 也可以直接对 AI 说：
 
-> 帮我用 npm 安装 dsh-deepseek-balance-widget 插件，执行 `dsh plugin --profile web add dsh-deepseek-balance-widget@2.4.2`。
+> 帮我用 npm 安装 dsh-deepseek-balance-widget 插件，执行 `dsh plugin --profile web add dsh-deepseek-balance-widget@2.4.3`。
 
 ## 配置
 
@@ -82,23 +88,37 @@ AI 会接管全部：问 API Key / 引导获取平台 Cookie → 读取本机教
 ### 方式二：命令行强制更新（最稳妥，适合卡住或装不上的情况）
 
 ```bash
-dsh plugin --profile web add dsh-deepseek-balance-widget@2.4.2
+dsh plugin --profile web add dsh-deepseek-balance-widget@2.4.3
 ```
 
-**写死版本号 `@2.4.2`** 可绕过本地缓存 / 镜像源不同步 / `latest` 解析成旧版的问题，一步到位。装完**彻底重启 `dsh web`**。
+**写死版本号 `@2.4.3`** 可绕过本地缓存 / 镜像源不同步 / `latest` 解析成旧版的问题，一步到位。装完**彻底重启 `dsh web`**。
 
 ### 方式三：手动更新（命令行更新失败时兜底）
 
 ```bash
 cd ~/.dsh/profiles/web
-npm install dsh-deepseek-balance-widget@2.4.2   # 若目录内有 pnpm-lock.yaml 则用 pnpm add
+npm install dsh-deepseek-balance-widget@2.4.3   # 若目录内有 pnpm-lock.yaml 则用 pnpm add
 # 验证磁盘上确实变了
 cat node_modules/dsh-deepseek-balance-widget/package.json | grep '"version"'
 ```
 
-确认输出 `2.4.2` 后，**彻底重启 `dsh web`** 即可。
+确认输出 `2.4.3` 后，**彻底重启 `dsh web`** 即可。
 
 > 如果你的环境里弹窗/命令行的更新一直失败（提示版本没变），通常是 Agent 主机（如 WorkBuddy）通过 `NODE_OPTIONS` 注入了文件删除拦截导致 pnpm/npm 更新中断。此时在**普通终端**（不通过 Agent 运行）里执行上面的命令即可成功；或先执行 `set NODE_OPTIONS=`（PowerShell）再重试。
+
+## 更新日志
+
+### v2.4.3
+
+- **修复**：与 maid-atelier 等皮肤插件共存时，余额卡片完全不显示、控制台持续抛 `Uncaught NotFoundError: insertBefore` 的问题
+- 侧栏 / 底栏插入统一改用安全插入 helper：插入前校验锚点是否仍为目标容器的已连接子节点，否则退化为 `appendChild`，永不抛异常
+- `tryPlace()` 整体容错，单次失败不再中断后续重试；放置成功后在下一帧复查，自动纠正被皮肤 / React 同帧搬走的入口
+- `sidebarRoot()` 增加 `[data-maid-sidebar-footer]` 皮肤标记兜底
+- 感谢用户「朱鹭咲泽」提交的详细根因分析与修复补丁
+
+### v2.4.2 及更早
+
+见 [GitHub Releases](https://github.com/crazy-L118/dsh-deepseek-balance-widget/releases)。
 
 ## 卸载
 

@@ -4,6 +4,26 @@
 
 ---
 
+## v2.4.3
+
+**Tag:** `v2.4.3` → main
+
+**Description:**
+
+```markdown
+### 修复
+- 修复与 maid-atelier 等皮肤插件共存时，余额卡片完全不显示、控制台持续抛 `Uncaught NotFoundError: insertBefore` 的问题
+- 侧栏 / 底栏插入统一改用安全插入 helper：校验锚点后插入，失效时退化为 appendChild，永不抛异常
+- `tryPlace()` 整体容错，单次失败不再中断重试；放置后下一帧自动复查归位
+- `sidebarRoot()` 增加 `[data-maid-sidebar-footer]` 皮肤标记兜底
+
+### 其他
+- 中英文 README 新增皮肤兼容说明与更新日志，版本引用统一为 @2.4.3
+- 感谢用户「朱鹭咲泽」提交的详细根因分析与修复补丁
+```
+
+---
+
 ## v2.4.2
 
 **Tag:** `v2.4.2` → main
